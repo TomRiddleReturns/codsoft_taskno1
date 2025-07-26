@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayush Singh | Web Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Ayush Singh</h1>
+      <p class="typewriter" id="typewriter-text"></p>
+      <p class="subtitle">Web Developer | Creative Thinker | Lifelong Learner</p>
+    </div>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <img src="profile.jpg" alt="Ayush's Photo" class="profile-img"/>
+      <p>Hello! I'm a passionate web developer who loves designing clean, modern, and responsive websites. I'm skilled in HTML, CSS, and JavaScript, and currently exploring React and backend technologies.</p>
+    </div>
+  </section>
+
+  <section id="academics" class="section">
+    <div class="container">
+      <h2>Academics</h2>
+      <ul>
+        <li><strong>B.Tech in Information Technology</strong> – BIET Jhansi (2024–2028)</li>
+        <li><strong>Senior Secondary (Class 12)</strong> – City Montessori School, 2023</li>
+        <li><strong>Secondary (Class 10)</strong> – City Montessori School, 2021</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li><i class="fab fa-html5"></i> HTML5 & CSS3</li>
+        <li><i class="fab fa-js-square"></i> JavaScript</li>
+        <li><i class="fas fa-mobile-alt"></i> Responsive Web Design</li>
+        <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+        <li><i class="fab fa-python"></i> Python (Basics)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <iframe src="https://tomriddlereturns.github.io/RANINETZ/" loading="lazy" frameborder="0"></iframe>
+          <h3>Personal Blog Website</h3>
+          <p>A clean, responsive blog site built with HTML and CSS.</p>
+          <a href="https://tomriddlereturns.github.io/RANINETZ/" target="_blank" class="btn small-btn">View Full Site</a>
+        </div>
+
+        <div class="project-card">
+          <iframe src="https://tomriddlereturns.github.io/codsoft_taskno2/" loading="lazy" frameborder="0"></iframe>
+          <h3>Car Landing Page</h3>
+          <p>Modern, visually appealing car landing page using HTML, CSS & JS.</p>
+          <a href="https://tomriddlereturns.github.io/codsoft_taskno2/" target="_blank" class="btn small-btn">View Full Site</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="section">
+    <div class="container">
+      <h2>Resume</h2>
+      <a href="resume_ayush.pdf" target="_blank" class="btn">Download My Resume</a>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p><i class="fas fa-envelope"></i> mystic.bloke27@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91-7208554011</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ayush Singh. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const phrases = [
+      "Web Developer",
+      "JavaScript Enthusiast",
+      "Tech Explorer",
+      "React Learner"
+    ];
+
+    let i = 0, j = 0, currentPhrase = [], isDeleting = false;
+
+    function loop() {
+      const element = document.getElementById("typewriter-text");
+      element.innerHTML = currentPhrase.join("");
+
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          currentPhrase.push(phrases[i][j]);
+          j++;
+        }
+
+        if (isDeleting && j >= 0) {
+          currentPhrase.pop();
+          j--;
+        }
+
+        if (j === phrases[i].length) {
+          isDeleting = true;
+          setTimeout(loop, 1000);
+          return;
+        }
+
+        if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      }
+
+      setTimeout(loop, isDeleting ? 50 : 100);
+    }
+
+    loop();
+  </script>
+
+</body>
+</html>
